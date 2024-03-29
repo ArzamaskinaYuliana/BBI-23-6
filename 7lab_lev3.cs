@@ -20,24 +20,32 @@
 //        Console.WriteLine($"результат: {result} имя: {name} ");
 //    }
 
+//    public static Sportsman[] Merge(Sportsman[] m1, Sportsman[] m2)
+//    {
+//        Sportsman[] new_list = new Sportsman[m1.Length + m2.Length];
+//        for (int i = 0; i < m1.Length; i++)
+//        {
+//            new_list[i] = m1[i];
+//        }
+//        for (int i = 0; i < m2.Length; i++)
+//        {
+//            new_list[i + m1.Length] = m2[i];
+//        }
+//        return new_list;
 
+//    }
 //}
 
 //class SkierWoman : Sportsman
 //{
 //    public SkierWoman(string name, int res) : base(name, res)
-//    {
-//        this.name = name;
-//        result = res;
-//    }
+//    { }
 //}
 
 //class SkierMan : Sportsman
 //{
 //    public SkierMan(string name, int res) : base(name, res)
 //    {
-//        this.name = name;
-//        result = res;
 //    }
 //}
 
@@ -68,7 +76,8 @@
 //        Sportsman[] twogroup_sw = new SkierWoman[n_skierW2];
 //        Sportsman[] onegroup_sm = new SkierMan[n_skierM1];
 //        Sportsman[] twogroup_sm = new SkierMan[n_skierM2];
-//        Sportsman[] allperson = new Sportsman[n_skierW1 + n_skierW2 + n_skierM1 + n_skierM2];
+
+
 
 //        for (int i = 0; i < n_skierW1; i++)
 //        {
@@ -78,7 +87,6 @@
 //            SkierWoman Person = new SkierWoman(name_, result_);
 
 //            onegroup_sw[i] = Person;
-//            allperson[i] = Person;
 //        }
 
 //        for (int i = 0; i < n_skierW2; i++)
@@ -89,7 +97,6 @@
 //            SkierWoman Person = new SkierWoman(name_, result_);
 
 //            twogroup_sw[i] = Person;
-//            allperson[i + n_skierW1] = Person;
 //        }
 
 //        for (int i = 0; i < n_skierM1; i++)
@@ -100,7 +107,6 @@
 //            SkierMan Person = new SkierMan(name_, result_);
 
 //            onegroup_sm[i] = Person;
-//            allperson[i + n_skierW1 + n_skierW2] = Person;
 //        }
 
 //        for (int i = 0; i < n_skierM2; i++)
@@ -111,14 +117,21 @@
 //            SkierMan Person = new SkierMan(name_, result_);
 
 //            twogroup_sm[i] = Person;
-//            allperson[i + n_skierW1 + n_skierW2 + n_skierM1] = Person;
 //        }
 
 //        onegroup_sw = Sort(onegroup_sw);
 //        twogroup_sw = Sort(twogroup_sw);
 //        onegroup_sm = Sort(onegroup_sm);
 //        twogroup_sm = Sort(twogroup_sm);
-//        allperson = Sort(allperson);
+
+//        Sportsman[] women = Sportsman.Merge(onegroup_sw, twogroup_sw);
+//        women = Sort(women);
+
+//        Sportsman[] men = Sportsman.Merge(onegroup_sm, twogroup_sm);
+//        men = Sort(men);
+
+//        Sportsman[] allpeople = Sportsman.Merge(women, men);
+//        allpeople = Sort(allpeople);
 
 
 //        Console.WriteLine("1 группа женщины:");
@@ -135,6 +148,15 @@
 //        {
 //            Console.Write($"{i + 1} место:"); ;
 //            twogroup_sw[i].Info();
+//            Console.WriteLine();
+//        }
+//        Console.WriteLine();
+
+//        Console.WriteLine("Женщины:");
+//        for (int i = 0; i < women.Length; i++)
+//        {
+//            Console.Write($"{i + 1} место:"); ;
+//            women[i].Info();
 //            Console.WriteLine();
 //        }
 //        Console.WriteLine();
@@ -157,13 +179,24 @@
 //        }
 //        Console.WriteLine();
 
-//        Console.WriteLine("Все:");
-//        for (int i = 0; i < allperson.Length; i++)
+//        Console.WriteLine(" Все мужчины :");
+//        for (int i = 0; i < men.Length; i++)
 //        {
 //            Console.Write($"{i + 1} место:"); ;
-//            allperson[i].Info();
+//            men[i].Info();
 //            Console.WriteLine();
 //        }
 //        Console.WriteLine();
+
+//        Console.WriteLine(" Все людишки :");
+//        for (int i = 0; i < allpeople.Length; i++)
+//        {
+//            Console.Write($"{i + 1} место:"); ;
+//            allpeople[i].Info();
+//            Console.WriteLine();
+//        }
+//        Console.WriteLine();
+
+
 //    }
 //}

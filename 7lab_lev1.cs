@@ -9,7 +9,6 @@
 //    private int best_result;
 //    private int flag = 1;
 
-//    public int Result { get { return best_result; } }
 //    public int Flag { get { return flag; } }
 
 //    public Participant(string name, int i, int res)
@@ -37,28 +36,27 @@
 //        Console.WriteLine($"результат: {best_result} имя: {name} ");
 //    }
 
-//}
-
-//public class Program
-//{
-//    static Participant[] Sort(Participant[] list)
+//    public static void Sort(Participant[] list)
 //    {
 //        for (int i = 1; i < list.Length; i++)
 //        {
-//            int k = list[i].Result;
+//            int k = list[i].best_result;
 //            Participant now = list[i];
 //            int j = i - 1;
 
-//            while (j >= 0 && list[j].Result < k)
+//            while (j >= 0 && list[j].best_result < k)
 //            {
 //                list[j + 1] = list[j];
 //                j--;
 //            }
 //            list[j + 1] = now;
 //        }
-//        return list;
 //    }
 
+//}
+
+//public class Program
+//{
 
 //    public static void Main(string[] args)
 //    {
@@ -83,7 +81,7 @@
 //            peoplelist[i] = Person;
 //        }
 
-//        peoplelist = Sort(peoplelist);
+//        Participant.Sort(peoplelist);
 
 //        int m = 1;
 //        for (int i = 0; i < n; i++)
