@@ -61,6 +61,9 @@
 
 //}
 
+//using static System.Net.Mime.MediaTypeNames;
+//using System.Threading.Tasks;
+
 //class Task_8 : Task
 //{
 //    public Task_8(string text) : base(text)
@@ -79,7 +82,7 @@
 //    private string Stroki_fifty_symb(string text)
 //    {
 //        string res = "";
-//        string[] lines = text.Split(' ');
+//        string[] lines = text.Split(" ");
 
 //        int PositionWordNow = 0;
 
@@ -87,6 +90,7 @@
 //        {
 //            string line = lines[PositionWordNow];
 //            int i = PositionWordNow + 1;
+//            bool f = false;
 //            while (line.Length < 50 && i < lines.Length)
 //            {
 //                line = line + " " + lines[i];
@@ -94,22 +98,52 @@
 //            }
 //            if (line.Length > 50)
 //            {
-//                line = line.Substring(0, line.Length - lines[i - 1].Length);
+//                line = line.Substring(0, line.Length - lines[i - 1].Length - 1);
 //                PositionWordNow = i - 1;
+//                f = true;
 //            }
 //            if (line.Length < 50)
 //            {
-//                while (line.Length < 50)
+//                string[] words = line.Split(" ");
+//                int word_id = 0;
+//                int ost = 50 - line.Length;
+//                while (ost != 0)
 //                {
-//                    line = line + ' ';
+
+//                    words[word_id] = words[word_id] + " ";
+//                    ost--;
+
+//                    word_id += 1;
+//                    if (word_id == words.Length - 1)
+//                    {
+//                        word_id = 0;
+//                    }
 //                }
-//                PositionWordNow = i;
+//                int ii = 0;
+//                string new_l = "";
+//                while (ii < words.Length)
+//                {
+//                    if (ii == words.Length - 1)
+//                    {
+//                        new_l = new_l + words[ii];
+//                    }
+//                    else
+//                    {
+//                        new_l = new_l + words[ii] + " ";
+//                    }
+//                    ii++;
+
+//                }
+//                line = new_l;
 //            }
 //            if (line.Length == 50)
 //            {
-//                PositionWordNow = i;
+//                if (!f)
+//                {
+//                    PositionWordNow = i;
+//                }
 //            }
-//            res += line + "\n";
+//            res += line + $"{line.Length}" + "\n";
 //        }
 //        return res;
 //    }
